@@ -1,0 +1,74 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	swaggerVersion = '2.6.1'
+	hibernateVersion = '5.0.11.Final'
+	guavaVersion = '20.0'
+	lombokVersion = '1.16.12'
+	spockVersion = '1.0-groovy-2.4'
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// Core
+	compile("com.stormpath.spring:stormpath-default-spring-boot-starter")
+
+	// Interface
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-web-services")
+	compile("org.springframework.boot:spring-boot-starter-aop")
+
+	// Domain
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.hibernate:hibernate-java8:${hibernateVersion}")
+	compile("mysql:mysql-connector-java")
+
+	// API UI
+	compile "io.springfox:springfox-swagger2:${swaggerVersion}"
+	compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+
+	// Util
+	compile "com.google.guava:guava:${guavaVersion}"
+	compile "org.projectlombok:lombok:${lombokVersion}"
+
+	// Test
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile "org.spockframework:spock-core:${spockVersion}"
+	testCompile "org.spockframework:spock-spring:${spockVersion}"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.stormpath.sdk:stormpath-bom:1.5.2"
+	}
+}
+
+version '1.0-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.9'
+}
