@@ -11,6 +11,7 @@ const API_HEADER = {
 
 class KanbanBoardContainer extends Component {
   constructor() {
+    super();
     this.state = {
       cards: []
     };

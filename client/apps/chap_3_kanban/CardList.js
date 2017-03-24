@@ -8,7 +8,7 @@ class CardList extends Component {
                    title={card.title}
                    description={card.description}
                    tasks={card.tasks}
-                   taskCallBacks={this.props.taskCallBacks}/>
+                   taskCallBacks={this.props.taskCallBacks} />
     });
 
     return (
