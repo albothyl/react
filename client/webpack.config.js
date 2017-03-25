@@ -7,7 +7,8 @@ var config = {
   devtool: 'eval-source-map',
   // entry:  __dirname + "/apps/chap_1_grocery/GreceryApp.js",
   // entry:  __dirname + "/apps/chap_2_kanban/KanbanApp.js",
-  entry:  __dirname + "/apps/chap_3_contract/ContractsApp.js",
+  // entry:  __dirname + "/apps/chap_3_contract/ContractsApp.js",
+  entry:  __dirname + "/apps/chap_5_router/App.js",
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"

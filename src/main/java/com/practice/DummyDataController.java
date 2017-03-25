@@ -35,7 +35,7 @@ public class DummyDataController {
 		final Card deploy = Card.create(3l, "ProjectDeploy", "배포", Status.TO_DO.getViewDescription(), emptyList());
 
 
-		dummyCardList = Lists.newArrayList(projectSetting, dataMigration, deploy);
+		dummyCardList = Lists.newArrayList(projectArchitectureDesign, projectSetting, dataMigration, deploy);
 	}
 
 	@RequestMapping(value = "/api/v1/kanban/cards", method = RequestMethod.GET)
