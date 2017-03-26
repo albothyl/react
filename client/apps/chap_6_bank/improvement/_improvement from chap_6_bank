@@ -1,0 +1,30 @@
+개선점
+
+1. BankBalanceStore_improvement_1
+- 기존 BankBalanceStore에서 직접 event를 컨트롤하던 작업을 fluxutil의 store를 사용하여 컨트롤하도록 변경함.
+- fluxutils 내부의 이벤트 컨트롤도 BankBalanceStore 처럼 fbemitter을 사용한다.
+
+2. BankBalanceStore_improvement_2
+- BankBalanceStore_improvement_1에서 컨트롤하던 값까지 fluxutil의 reduceStore에서 관리하도록 변경함.
+
+
+기존 BankBalanceStore의 동작
+1. BankBalanceStore는 Dispatcher에 Action별로 동작과 이벤트 emit하는 switch문을 등록한다.
+2. BankBalanceStore는 기본적으로 아래 3가지 기능을 가진다. (fbemitter로 이벤트를 컨트롤한다.)
+  - 다른 컴포넌트에서 이벤트와 콜백을 등록할 수 있다.
+  - 현재값 리턴 리턴한다.
+  - 등록되어 있는 이벤트를 제거한다.
+3. App에서는 아래 순서로 동작한다.
+  - componentWillMount : 등록되어 있는 이베트 제거
+  - render
+  - componentDidMount : 이벤트 콜백을 등록 (store의 값을 가져와 App의 state에 저장한다.)
+  - constructor : createAccount Action을 전송
+  - 사용자 동작을 받아 deposit, withdraw 호출
+
+------------------------------------------------------------------------------------
+질문
+
+1. BankBalanceStore_improvement_1 에서 export 할 때 생성자에 AppDispatcher를 사용한다. 하지만 BankBalanceStore에는 생성자가 없는데
+자바스크립트에서는 extend하는 부모 클래스의 확장자를 자동으로 호출하나?
+
+2. getState, __onDispatch, getInitialState, reduce 언제 호출되나? fluxutil의 Store, ReduceStore에서 호출하나?

@@ -1,0 +1,4 @@
+수정된 파일
+1. /apps/chap_6_bank/chap_6_bank_async/BankRewardsStore.js 추가
+2. /apps/chap_6_bank/chap_6_bank_async/App.js
+  - BankRewardsStore 적용

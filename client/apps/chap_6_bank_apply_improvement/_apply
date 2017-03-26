@@ -1,0 +1,6 @@
+수정된 파일
+1. /apps/chap_6_bank/improvement/BankBalanceStore.js
+  - ReduceStore 적용
+2. /apps/chap_6_bank/improvement/App.js
+ - 변경된 BankBalanceStore 적용
+
