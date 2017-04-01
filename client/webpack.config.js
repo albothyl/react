@@ -30,7 +30,9 @@ var config = {
     contentBase: "./public",
     colors: true,
     historyApiFallback: true,
-    inline: true
+    inline: true,
+    host: "127.0.0.1",
+    port: 3000
   },
 }
 
